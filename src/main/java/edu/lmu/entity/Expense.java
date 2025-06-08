@@ -21,8 +21,8 @@ public class Expense {
     @Column(name = "cost", nullable = false)
     private Double cost;
 
-    @ManyToOne
-    @JoinColumn(name = "budget_id")
-    private Budget budget;
+//    @ManyToOne
+//    @JoinColumn(name = "budget_id")
+//    private Budget budget;
 
 }

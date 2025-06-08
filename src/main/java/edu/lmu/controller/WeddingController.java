@@ -14,9 +14,9 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/api/weddings")
+@RequestMapping("/api/couple/weddings")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin
 public class WeddingController {
 
     private final WeddingService weddingService;

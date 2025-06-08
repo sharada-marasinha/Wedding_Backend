@@ -26,18 +26,18 @@ public class TaskServiceImpl {
         return taskRepository.findById(id);
     }
 
-    public List<Task> getTasksByWeddingId(Integer weddingId) {
-        return taskRepository.findByWedding_WeddingId(weddingId);
-    }
+//    public List<Task> getTasksByWeddingId(Integer weddingId) {
+//        return taskRepository.findByWedding_WeddingId(weddingId);
+//    }
 
-    public Task createTask(Integer weddingId, Task task) {
-        Optional<Wedding> wedding = weddingRepository.findById(weddingId);
-        if (wedding.isPresent()) {
-            task.setWedding(wedding.get());
-            return taskRepository.save(task);
-        }
-        return null;
-    }
+//    public Task createTask(Integer weddingId, Task task) {
+//        Optional<Wedding> wedding = weddingRepository.findById(weddingId);
+//        if (wedding.isPresent()) {
+//            task.setWedding(wedding.get());
+//            return taskRepository.save(task);
+//        }
+//        return null;
+//    }
 
     public Task updateTask(Integer id, Task updatedTask) {
         Optional<Task> existingTask = taskRepository.findById(id);

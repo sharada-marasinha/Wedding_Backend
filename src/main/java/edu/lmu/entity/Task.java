@@ -21,9 +21,9 @@ public class Task {
     @Column(name = "task_id")
     private Integer taskId;
 
-    @ManyToOne
-    @JoinColumn(name = "wedding_id", nullable = false)
-    private Wedding wedding;
+//    @ManyToOne
+//    @JoinColumn(name = "wedding_id", nullable = false)
+//    private Wedding wedding;
 
     @Column(name = "task_name", nullable = false)
     private String taskName;

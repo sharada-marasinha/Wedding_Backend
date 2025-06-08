@@ -23,10 +23,10 @@ public class Budget {
     @Column(name = "remaining_budget")
     private Double remainingBudget;
 
-    @OneToOne(mappedBy = "budgetDetails")
-    private Wedding wedding;
-
-    @OneToMany(mappedBy = "budget", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Expense> expenses;
+//    @OneToOne(mappedBy = "budgetDetails")
+//    private Wedding wedding;
+//
+//    @OneToMany(mappedBy = "budget", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Expense> expenses;
 
 }

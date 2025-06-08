@@ -21,6 +21,7 @@ public class VendorController {
     private final VendorServiceImpl vendorService;
 
     @GetMapping
+
     public ResponseEntity<List<Vendor>> getAllVendors() {
         return new ResponseEntity<>(vendorService.getAllVendors(), HttpStatus.OK);
     }

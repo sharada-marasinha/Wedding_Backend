@@ -44,7 +44,7 @@ public class Vendor {
     @Column(name = "rating")
     private Double rating;
 
-    @ManyToMany(mappedBy = "vendors")
-    private List<Wedding> weddings;
+//    @ManyToMany(mappedBy = "vendors")
+//    private List<Wedding> weddings;
 
 }
