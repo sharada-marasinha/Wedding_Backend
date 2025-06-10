@@ -29,8 +29,8 @@ public class Wedding {
     @Column(name = "wedding_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date weddingDate;
-    @OneToOne
-    private Budget budgetDetails;
+//    @OneToOne
+//    private Budget budgetDetails;
 
     @Column(name = "guest_count")
     private Integer guestCount;

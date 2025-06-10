@@ -1,27 +1,35 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: wedding-app
+            scope: openid, profile, email
+      provider:
+        keycloak:
+          issuer-uri: http://localhost:8080/realms/wedding-app
+    resource-server:
+      jwt:
+        issuer-uri: http://localhost:8080/realms/wedding-app
+
   mail:
-    # ===============================================================
-    # GMAIL SMTP SERVER SETTINGS
-    # ===============================================================
     host: smtp.gmail.com
     port: 587
     username: sharadamarasinha@gmail.com
     # Your 16-digit App Password from Google
-    password: xsqx jkrf heue bwnx
-
-    # ===============================================================
-    # JAVA MAIL SMTP PROPERTIES
-    # ===============================================================
+    password: xsqx jkrf heue bwnx  # ⚠️ Consider using an environment variable or vault
     properties:
       mail:
         smtp:
           auth: true
           starttls:
             enable: true
-          # Optional: Add connection timeouts (in milliseconds)
+          # Optional timeouts (in milliseconds)
           # connectiontimeout: 5000
           # timeout: 5000
           # writetimeout: 5000
+
   datasource:
     url: jdbc:mysql://localhost:3306/wedding_db?createDatabaseIfNotExist=true
     username: root
@@ -33,9 +41,10 @@ spring:
       idle-timeout: 30000
       max-lifetime: 600000
       connection-timeout: 30000
+
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
     properties:
       hibernate:
@@ -44,51 +53,28 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+
   sql:
     init:
       mode: always
-  profiles:
-    active: dev
 
+logging:
+  level:
+    org:
+      springframework:
+        security: trace
 
-app:
-  jwt-secret: '5465sdfsdf56sdfsdsfsdf4sdfsdfsd4sdf4sdf4seyours512vbitksecretnkeyvmustsbepatvleastk32pcharactersqlong'
-  jwt-expiration-milliseconds: 86400000 # 24 hours
+server:
+  port: 8081
+  error:
+    include-message: always
 
+# Uncomment to use specific profile
+# spring:
+#   profiles:
+#     active: dev
 
-
-
-#&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-
-
-# ===============================================================
-# GMAIL SMTP SERVER SETTINGS
-# ===============================================================
-
-# SMTP server for sending mail
-#  spring.mail.host=smtp.gmail.com
-
-  # Port for TLS/STARTTLS
-#  spring.mail.port=587
-
-  # Your full Gmail address
-#  spring.mail.username=sharadamarasinha@gmail.com
-
-  # Your 16-digit App Password from Google
-#  spring.mail.password=xsqx jkrf heue bwnx
-
-  # ===============================================================
-  # JAVA MAIL SMTP PROPERTIES
-  # ===============================================================
-#  spring.mail.properties.mail.smtp.auth=true
-#  spring.mail.properties.mail.smtp.starttls.enable=true
-
-# Optional: Add a connection timeout (e.g., 5 seconds)
-# spring.mail.properties.mail.smtp.connectiontimeout=5000
-# spring.mail.properties.mail.smtp.timeout=5000
-# spring.mail.properties.mail.smtp.writetimeout=5000
-
-
-
-
-
+# Uncomment and set JWT values securely
+# app:
+#   jwt-secret: 'your-512-bit-secret-key-which-should-be-very-long'
+#   jwt-expiration-milliseconds: 86400000 # 24 hours
